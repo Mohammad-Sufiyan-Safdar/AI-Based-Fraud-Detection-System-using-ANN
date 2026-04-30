@@ -1,0 +1,2 @@
+Industry_Sector,Transaction_Amount_INR,Cybersecurity_Risk_Level,Forensic_Audit_Conducted,Fraud_Type,Anomaly_Score,Cybersecurity_Breach
+2,100,0,0,0,1,1

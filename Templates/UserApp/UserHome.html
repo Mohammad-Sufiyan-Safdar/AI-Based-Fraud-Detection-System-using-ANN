@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+<meta charset="utf-8">
+<title>User Dashboard</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+<style>
+
+body{
+font-family:Poppins;
+background:#f5f7fb;
+}
+
+/* Navbar */
+
+.navbar{
+background:linear-gradient(45deg,#0f2027,#203a43,#2c5364);
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.navbar .nav-link{
+color:white;
+font-weight:500;
+margin-left:15px;
+}
+
+.navbar .nav-link:hover{
+color:#ffd369;
+}
+
+/* Banner */
+
+.banner{
+background:linear-gradient(120deg,#1a2a6c,#b21f1f,#fdbb2d);
+padding:110px 0;
+color:white;
+}
+
+.banner h2{
+font-weight:700;
+font-size:34px;
+}
+
+.banner img{
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Dashboard */
+
+.dashboard{
+padding:70px 0;
+}
+
+.card-box{
+background:white;
+border-radius:12px;
+padding:30px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+transition:.3s;
+text-align:center;
+}
+
+.card-box:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+
+.card-box i{
+font-size:40px;
+color:#2c5364;
+margin-bottom:15px;
+}
+
+.card-box h4{
+font-weight:600;
+margin-bottom:10px;
+}
+
+.card-box a{
+display:inline-block;
+margin-top:10px;
+padding:8px 20px;
+background:#2c5364;
+color:white;
+border-radius:5px;
+text-decoration:none;
+}
+
+.card-box a:hover{
+background:#203a43;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg">
+
+<div class="container">
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+<span class="fas fa-bars"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+<ul class="navbar-nav ml-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="/userapp/UserHome">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/userapp/DetectFraud">Detect Fraud</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/userapp/login">Logout</a>
+</li>
+
+</ul>
+
+</div>
+</div>
+</nav>
+
+
+<!-- Banner -->
+
+<section class="banner">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-md-7">
+
+<h2>Welcome To :<br> {{request.session.user}}</h2>
+<p>Fraud Detection System Dashboard</p>
+
+</div>
+
+<div class="col-md-5 text-center">
+
+<img src="{%static 'images/img2.jpg'%}" class="img-fluid">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- Dashboard -->
+
+<section class="dashboard">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-6">
+
+<div class="card-box">
+
+<i class="fas fa-search"></i>
+
+<h4>Detect Fraud in Business</h4>
+
+<p>Analyze business data to detect potential fraudulent activities using ML algorithms.</p>
+
+<a href="/userapp/DetectFraud">Start Detection</a>
+
+</div>
+
+</div>
+
+
+<div class="col-md-6">
+
+<div class="card-box">
+
+<i class="fas fa-sign-out-alt"></i>
+
+<h4>Logout</h4>
+
+<p>Securely logout from the fraud detection system.</p>
+
+<a href="/userapp/login">Logout</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

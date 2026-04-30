@@ -1,0 +1,18 @@
+
+
+
+table tr th{
+ background: black;
+ font-weight: bold;
+ height:50px;
+ width:250px;
+ color:white;
+ border:1px solid white;
+}
+table tr td{
+    background: gray;
+    color:white;
+    height:35px;
+    width:300px;
+    border:1px solid black;
+}

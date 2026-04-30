@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+<meta charset="utf-8">
+<title>Dataset View</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+<style>
+
+body{
+font-family:Poppins;
+background:#f5f7fb;
+}
+
+/* Navbar */
+
+.navbar{
+background:linear-gradient(45deg,#0f2027,#203a43,#2c5364);
+}
+
+.navbar .nav-link{
+color:white;
+font-weight:500;
+margin-left:15px;
+}
+
+/* Banner */
+
+.banner{
+background:linear-gradient(120deg,#1a2a6c,#b21f1f,#fdbb2d);
+padding:80px 0;
+color:white;
+}
+
+/* Dataset Section */
+
+.dataset-section{
+padding:60px 0;
+}
+
+.dataset-card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+margin-bottom:30px;
+}
+
+/* Table */
+
+.table-container{
+overflow-x:auto;
+max-height:400px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#2c5364;
+color:white;
+padding:10px;
+}
+
+td{
+padding:8px;
+border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+background:#f2f2f2;
+}
+
+/* Info boxes */
+
+.info-box{
+background:#ffffff;
+border-radius:10px;
+padding:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+text-align:center;
+margin-bottom:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg">
+<div class="container">
+
+<div class="collapse navbar-collapse">
+
+<ul class="navbar-nav ml-auto">
+
+<li class="nav-item"><a class="nav-link" href="/AdminHome">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="/Upload">Upload Dataset</a></li>
+<li class="nav-item"><a class="nav-link" href="/preprocess">Preprocess</a></li>
+<li class="nav-item"><a class="nav-link" href="/runANN">Generate ANN Model</a></li>
+<li class="nav-item"><a class="nav-link" href="/">Logout</a></li>
+
+</ul>
+
+</div>
+</div>
+</nav>
+
+<!-- Banner -->
+
+<section class="banner text-center">
+<div class="container">
+<h2>Dataset Overview</h2>
+<p>Preview and analyze uploaded dataset</p>
+</div>
+</section>
+
+<!-- Dataset Section -->
+
+<section class="dataset-section">
+
+<div class="container">
+
+<h3 class="text-center mb-4">Dataset Summary</h3>
+
+<div class="row text-center">
+
+<div class="col-md-6">
+<div class="info-box">
+<h4>Total Rows</h4>
+<h3>{{total_rows}}</h3>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="info-box">
+<h4>Total Columns</h4>
+<h3>{{total_columns}}</h3>
+</div>
+</div>
+
+</div>
+
+
+<div class="dataset-card">
+
+<h4>Dataset Preview (First 10 Rows)</h4>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+<tr>
+{% for column in columns %}
+<th>{{column}}</th>
+{% endfor %}
+</tr>
+</thead>
+
+<tbody>
+
+{% for row in rows %}
+<tr>
+{% for cell in row %}
+<td>{{cell}}</td>
+{% endfor %}
+</tr>
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="col-md-6">
+
+<div class="dataset-card">
+
+<h4>Column Data Types</h4>
+
+{% for key,value in dtypes.items %}
+<p><b>{{key}}</b> : {{value}}</p>
+{% endfor %}
+
+</div>
+
+</div>
+
+
+<div class="col-md-6">
+
+<div class="dataset-card">
+
+<h4>Missing Values</h4>
+
+{% for key,value in missing_values.items %}
+<p><b>{{key}}</b> : {{value}}</p>
+{% endfor %}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>

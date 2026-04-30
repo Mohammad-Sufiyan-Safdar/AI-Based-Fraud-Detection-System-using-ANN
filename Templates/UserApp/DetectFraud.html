@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+<meta charset="utf-8">
+<title>Fraud Detection</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+<style>
+
+body{
+font-family:Poppins;
+background:#f5f7fb;
+}
+
+/* Navbar */
+
+.navbar{
+background:linear-gradient(45deg,#0f2027,#203a43,#2c5364);
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.navbar h4{
+color:white;
+margin:0;
+font-weight:600;
+}
+
+.navbar .nav-link{
+color:white;
+font-weight:500;
+margin-left:15px;
+}
+
+.navbar .nav-link:hover{
+color:#ffd369;
+}
+
+/* Banner */
+
+.banner{
+background:linear-gradient(120deg,#1a2a6c,#b21f1f,#fdbb2d);
+padding:80px 0;
+color:white;
+text-align:center;
+}
+
+.banner h2{
+font-weight:700;
+}
+
+/* Form Card */
+
+.form-section{
+padding:70px 0;
+}
+
+.form-card{
+background:white;
+padding:40px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+max-width:600px;
+margin:auto;
+}
+
+.form-card h3{
+text-align:center;
+margin-bottom:25px;
+font-weight:600;
+color:#2c3e50;
+}
+
+.form-card input,
+.form-card select{
+width:100%;
+padding:10px;
+border:1px solid #ccc;
+border-radius:6px;
+margin-bottom:15px;
+}
+
+/* Buttons */
+
+.btn-predict{
+background:#2c5364;
+color:white;
+border:none;
+padding:10px;
+width:48%;
+border-radius:6px;
+}
+
+.btn-reset{
+background:#6c757d;
+color:white;
+border:none;
+padding:10px;
+width:48%;
+border-radius:6px;
+}
+
+.btn-predict:hover{
+background:#203a43;
+}
+
+.btn-reset:hover{
+background:#5a6268;
+}
+
+.error{
+text-align:center;
+color:red;
+margin-bottom:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg">
+
+<div class="container">
+
+<h4>Fraud Detection in Indian Businesses</h4>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+<span class="fas fa-bars"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+<ul class="navbar-nav ml-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="/userapp/UserHome">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/userapp/DetectFraud">Detect Fraud</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/userapp/login">Logout</a>
+</li>
+
+</ul>
+
+</div>
+</div>
+</nav>
+
+
+<!-- Banner -->
+
+<section class="banner">
+
+<div class="container">
+
+<h2>Cybersecurity & Forensic Accounting Impact on Fraud Detection</h2>
+
+</div>
+
+</section>
+
+
+<!-- Prediction Form -->
+
+<section class="form-section">
+
+<div class="container">
+
+<div class="form-card">
+
+<h3>Fraud Detection Prediction</h3>
+
+<div class="error">{{data}}</div>
+
+<form action="/userapp/PredAction" method="post">
+
+{%csrf_token%}
+
+<label>Industry Sector</label>
+<select name="ind_sec" required>
+<option value=""></option>
+{{ind_sec | safe}}
+</select>
+
+<label>Transaction Amount (INR)</label>
+<input type="number" name="tai" required>
+
+<label>Cybersecurity Risk Level</label>
+<select name="crl" required>
+<option value=""></option>
+{{crl | safe}}
+</select>
+
+<label>Forensic Audit Conducted</label>
+<select name="fac" required>
+<option value=""></option>
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<label>Fraud Type</label>
+<select name="ft" required>
+<option value=""></option>
+{{fac | safe}}
+</select>
+
+<label>Anomaly Score</label>
+<input type="text" name="anm_score" required>
+
+<label>Cybersecurity Breach</label>
+<select name="csb" required>
+<option value=""></option>
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<div style="display:flex;justify-content:space-between;margin-top:10px">
+
+<input type="submit" value="Predict" class="btn-predict">
+
+<input type="reset" value="Reset" class="btn-reset">
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
