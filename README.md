@@ -28,22 +28,22 @@ Dataset → Preprocessing → Model Training → Prediction → Result
 ## Screenshots
 
 ### Admin Dashboard
-![Admin Dashboard](screenshots/Admin_Dashboard.jpg)
+![Admin Dashboard](screenshots/Admin_Dashboard.png)
 
 ### Upload Dataset
-![Upload Dataset](screenshots/Upload_Dataset.jpg)
+![Upload Dataset](screenshots/Upload_Dataset.png)
 
 ### Dataset Preview
-![Dataset Preview](screenshots/Dataset_Preview.jpg)
+![Dataset Preview](screenshots/Dataset_Preview.png)
 
 ### Preprocessing Output
-![Preprocessing](screenshots/Preprocessing.jpg)
+![Preprocessing](screenshots/Preprocessing.png)
 
 ### Model Accuracy
-![Model Accuracy](screenshots/Model_Accuracy.jpg)
+![Model Accuracy](screenshots/Model_Accuracy.png)
 
 ### Prediction Result
-![Prediction Result](screenshots/Fraud_Prediction_Result.jpg)
+![Prediction Result](screenshots/Fraud_Prediction_Result.png)
 ## Installation
 
 ```bash
